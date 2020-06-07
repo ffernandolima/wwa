@@ -2,12 +2,12 @@
 // See License.txt in the project root for license information.
 
 using System.Collections.Generic;
-using Wwa.Core.Logic;
+using Prolix.Logic;
 using Marketplace.Domain.Models.Security;
 
 namespace Marketplace.Logic.Contracts.Security
 {
-    public interface IRoleService : IUpdatableService<Role>
+    public interface IRoleService : IRepositoryService<Role>
     {
     }
 }

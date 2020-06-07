@@ -2,11 +2,11 @@
 // See License.txt in the project root for license information.
 
 using Marketplace.Domain.Models.Configuration;
-using Wwa.Core.Logic;
+using Prolix.Logic;
 
 namespace Marketplace.Logic.Contracts.Configuration
 {
-    public interface ISettingService : IUpdatableService<Setting>
+    public interface ISettingService : IRepositoryService<Setting>
     {
         ApplicationSetting Get();
     }

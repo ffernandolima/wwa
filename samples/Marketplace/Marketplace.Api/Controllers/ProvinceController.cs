@@ -3,13 +3,13 @@
 
 using System.Web.Http;
 
-using Marketplace.Models.Geography;
+using Marketplace.Client.Models.Geography;
 using Marketplace.Domain.Models.Geography;
 using Marketplace.Logic.Contracts.Geography;
 using Marketplace.Logic.Queries.Geography;
 
-using Wwa.Api.Controllers;
-using Wwa.Api.Extensions;
+using Prolix.AspNet.Controllers;
+using Prolix.AspNet.Extensions;
 
 namespace Marketplace.Api.Controllers
 {

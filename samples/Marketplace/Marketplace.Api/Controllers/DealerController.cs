@@ -4,14 +4,14 @@
 using System.Threading.Tasks;
 using System.Web.Http;
 
-using Marketplace.Models;
-using Marketplace.Models.Trading;
+using Marketplace.Client.Models;
+using Marketplace.Client.Models.Trading;
 using Marketplace.Domain.Models.Trading;
 using Marketplace.Logic.Contracts.Trading;
 using Marketplace.Logic.Queries.Trading;
 
-using Wwa.Api.Controllers;
-using Wwa.Api.Extensions;
+using Prolix.AspNet.Controllers;
+using Prolix.AspNet.Extensions;
 
 namespace Marketplace.Api.Controllers
 {

@@ -46,7 +46,6 @@
     <Compile Include="Contracts\Configuration\ICategoryService.cs" />
     <Compile Include="Contracts\Geography\ICountryService.cs" />
     <Compile Include="Contracts\Geography\IProvinceService.cs" />
-    <Compile Include="Contracts\Security\IAuditService.cs" />
     <Compile Include="Contracts\Security\IFeatureService.cs" />
     <Compile Include="Contracts\Security\IIdentityService.cs" />
     <Compile Include="Contracts\Security\IRoleService.cs" />
@@ -56,7 +55,6 @@
     <Compile Include="Contracts\Trading\IProductService.cs" />
     <Compile Include="Contracts\Trading\IOrderService.cs" />
     <Compile Include="Services\RepositoryService.cs" />
-    <Compile Include="Services\UpdatableService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\Configuration\CategoryQuery.cs" />
     <Compile Include="Queries\Geography\CountryQuery.cs" />
@@ -71,7 +69,6 @@
     <Compile Include="Services\Configuration\CategoryService.cs" />
     <Compile Include="Services\Geography\CountryService.cs" />
     <Compile Include="Services\Geography\ProvinceService.cs" />
-    <Compile Include="Services\Security\AuditService.cs" />
     <Compile Include="Services\Security\FeatureService.cs" />
     <Compile Include="Services\Security\IdentityService.cs" />
     <Compile Include="Services\Security\RoleService.cs" />
@@ -82,9 +79,9 @@
     <Compile Include="Services\Trading\OrderService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Wwa.Core\Wwa.Core.csproj">
+    <ProjectReference Include="..\..\..\src\Prolix\Prolix.csproj">
       <Project>{72f5a057-3f26-4068-9346-89492a062907}</Project>
-      <Name>Wwa.Core</Name>
+      <Name>Prolix</Name>
     </ProjectReference>
     <ProjectReference Include="..\Marketplace.Data\Marketplace.Data.csproj">
       <Project>{2fbef665-972a-42c3-ae58-2861f684cdd6}</Project>

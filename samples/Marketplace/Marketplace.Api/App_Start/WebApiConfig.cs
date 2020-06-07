@@ -2,29 +2,28 @@
 // See License.txt in the project root for license information.
 
 using AutoMapper;
+using Microsoft.Owin;
 using Newtonsoft.Json;
 
 using System.Reflection;
 using System.Web.Http;
 using System.Web.Http.Controllers;
-using System.Web.Http.ExceptionHandling;
-using System.Web.Http.Filters;
 
-using Marketplace.Api.Core.Filters;
+using Marketplace.Api.Infrastructure;
 using Marketplace.Data;
 using Marketplace.Domain.Security;
 using Marketplace.Logic.Services.Configuration;
 
-using Wwa.Api.Cors;
-using Wwa.Api.Extensions;
-using Wwa.Api.Filters;
-using Wwa.Api.Formatters;
-using Wwa.Api.Handlers;
-using Wwa.Api.Ioc;
-using Wwa.Api.Providers;
-using Wwa.Core.Ioc;
-using Wwa.Identity.AspNet;
-using Wwa.Ioc.Autofac;
+using Prolix.AspNet.Cors;
+using Prolix.AspNet.Extensions;
+using Prolix.AspNet.Filters;
+using Prolix.AspNet.Formatters;
+using Prolix.AspNet.Ioc;
+using Prolix.Identity.AspNet;
+using Prolix.Ioc.Autofac;
+
+// ASP .NET Identity Startup
+[assembly: OwinStartup(typeof(IdentityServer))]
 
 namespace Marketplace.Api
 {
@@ -33,7 +32,7 @@ namespace Marketplace.Api
         public static void Register(HttpConfiguration config)
         {
             // Dependency Resolver
-            ConfigureDependencies(config);
+            ConfigureServices(config);
 
             // Api Handlers/Services
             ConfigureHandlers(config);
@@ -51,36 +50,32 @@ namespace Marketplace.Api
             ConfigureMapper();
         }
 
-        static void ConfigureDependencies(HttpConfiguration config)
+        static void ConfigureServices(HttpConfiguration config)
         {
             // IoC container
-            var manager = new AutofacDependencyManager();
+            var resolver = new AutofacResolver();
 
             // Map app dependencies
-            manager.MapAssembly<SecurityContext>();     // Domain
-            manager.MapAssembly<DataContext>();         // Data
-            manager.MapAssembly<CategoryService>();     // Logic
-            manager.MapAssembly<PermissionAttribute>(); // Api
+            resolver.ScanAssembly<SecurityContext>();     // Domain
+            resolver.ScanAssembly<DataContext>();         // Data
+            resolver.ScanAssembly<CategoryService>();     // Logic
+            resolver.ScanAssembly<PermissionAttribute>(); // Api
 
             // Map code dependencies
-            manager.MapAssembly<GlobalAuthorizeAttribute>();// Filters
-            manager.MapAssembly<IdentityManager>();         // Identity
+            resolver.ScanAssembly<GlobalAuthorizeAttribute>();// Filters
+            resolver.ScanAssembly<IdentityManager>();         // Identity
             
             // Map all controllers
-            manager.MapType<IHttpController>(Assembly.GetExecutingAssembly());
+            resolver.ScanTypes<IHttpController>(Assembly.GetExecutingAssembly());
 
             // Setting the Resolver
-            config.DependencyResolver = manager.GetHttpResolver();
+            config.DependencyResolver = resolver.GetHttpResolver();
         }
         
         static void ConfigureHandlers(HttpConfiguration config)
         {
             // Global Services/Handlers
-            config.Services.Replace(typeof(IFilterProvider), new GlobalFilterProvider());
-            config.Services.Replace(typeof(IExceptionHandler), new GlobalExceptionHandler());
-
-            // Route interceptor
-            config.MessageHandlers.Insert(0, new RouteHandler());
+            config.UseGlobalHandlers();
         }
 
         static void ConfigureRoutes(HttpConfiguration config)

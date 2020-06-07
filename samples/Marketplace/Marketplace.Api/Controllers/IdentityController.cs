@@ -4,13 +4,13 @@
 using System.Threading.Tasks;
 using System.Web.Http;
 
-using Marketplace.Models.Security;
+using Marketplace.Client.Models.Security;
 using Marketplace.Domain.Models.Security;
 using Marketplace.Logic.Contracts.Security;
 
-using Wwa.Api.Controllers;
-using Wwa.Api.Extensions;
-using Wwa.Api.Filters;
+using Prolix.AspNet.Controllers;
+using Prolix.AspNet.Extensions;
+using Prolix.AspNet.Filters;
 
 namespace Marketplace.Api.Controllers
 {

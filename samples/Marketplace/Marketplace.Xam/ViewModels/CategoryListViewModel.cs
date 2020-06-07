@@ -4,13 +4,13 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-using Marketplace.Models.Configuration;
-using Marketplace.Xam.Services;
+using Marketplace.Client.Models.Configuration;
+using Marketplace.Client.Services;
 
-using Wwa.Core.Collections;
-using Wwa.Core.Logic;
-using Wwa.Core.Mobile.Navigation;
-using Wwa.Xam.Navigation;
+using Prolix.Collections;
+using Prolix.Logic;
+using Prolix.Client.Navigation;
+using Prolix.Xam.Navigation;
 
 namespace Marketplace.Xam.ViewModels
 {

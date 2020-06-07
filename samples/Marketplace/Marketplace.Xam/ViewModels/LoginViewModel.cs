@@ -3,12 +3,12 @@ using System.Diagnostics;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-using Marketplace.Models.Security;
-using Marketplace.Xam.Models;
-using Marketplace.Xam.Services;
+using Marketplace.Client.Models.Security;
+using Marketplace.Client.Models;
+using Marketplace.Client.Services;
 
-using Wwa.Core.Logic;
-using Wwa.Core.Mobile.Navigation;
+using Prolix.Logic;
+using Prolix.Client.Navigation;
 
 namespace Marketplace.Xam.ViewModels
 {

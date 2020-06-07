@@ -10,11 +10,11 @@ using Marketplace.Domain.Security;
 using Marketplace.Logic.Contracts.Trading;
 using Marketplace.Logic.Queries.Trading;
 
-using Wwa.Core.Collections;
+using Prolix.Collections;
 
 namespace Marketplace.Logic.Services.Trading
 {
-    public sealed class CustomerService : UpdatableService<Customer>, ICustomerService
+    public sealed class CustomerService : RepositoryService<Customer>, ICustomerService
     {
         public CustomerService(IDataContext context, SecurityContext security) : base(context, security)
         {

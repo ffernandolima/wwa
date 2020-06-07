@@ -10,12 +10,12 @@ using Marketplace.Domain.Security;
 using Marketplace.Logic.Contracts.Security;
 using Marketplace.Logic.Queries.Security;
 
-using Wwa.Core.Collections;
-using Wwa.Core.Identity;
+using Prolix.Collections;
+using Prolix.Identity;
 
 namespace Marketplace.Logic.Services.Security
 {
-    public class UserService : UpdatableService<User>, IUserService
+    public class UserService : RepositoryService<User>, IUserService
     {
         #region Constructor
 

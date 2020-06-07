@@ -10,11 +10,11 @@ using Marketplace.Domain.Models.Configuration;
 using Marketplace.Logic.Contracts.Configuration;
 using Marketplace.Logic.Queries.Configuration;
 
-using Wwa.Core.Collections;
+using Prolix.Collections;
 
 namespace Marketplace.Logic.Services.Configuration
 {
-    public sealed class CategoryService : UpdatableService<Category>, ICategoryService
+    public sealed class CategoryService : RepositoryService<Category>, ICategoryService
     {
         public CategoryService(IDataContext context, SecurityContext security) : base(context, security)
         {

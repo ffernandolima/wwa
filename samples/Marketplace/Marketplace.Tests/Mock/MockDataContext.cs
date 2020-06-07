@@ -11,8 +11,8 @@ using Marketplace.Domain.Models.Geography;
 using Marketplace.Domain.Models.Security;
 using Marketplace.Domain.Models.Trading;
 
-using Wwa.Core.Data;
-using Wwa.Core.Tests;
+using Prolix.Data;
+using Prolix.Tests;
 
 namespace Marketplace.Tests.Mock
 {
@@ -59,9 +59,9 @@ namespace Marketplace.Tests.Mock
             return await Task.FromResult(1);
         }
 
-        public IEntitySet<ModelType> Set<ModelType>() where ModelType : class
+        public IEntitySet<T> Set<T>() where T : class
         {
-            return new MockEntitySet<ModelType>();
+            return new MockEntitySet<T>();
         }
 
         public void Start()

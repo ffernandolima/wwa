@@ -11,14 +11,14 @@ using Marketplace.Domain.Models.Trading;
 using Marketplace.Logic.Contracts.Trading;
 using Marketplace.Logic.Queries.Trading;
 
-using Wwa.Core.Collections;
-using Wwa.Core.Extensions.Parsing;
-using Wwa.Core.Extensions.Reflection;
-using Wwa.Core.Extensions.Collections;
+using Prolix.Collections;
+using Prolix.Extensions.Parsing;
+using Prolix.Extensions.Reflection;
+using Prolix.Extensions.Collections;
 
 namespace Marketplace.Logic.Services.Trading
 {
-    public sealed class OrderService : UpdatableService<Order>, IOrderService
+    public sealed class OrderService : RepositoryService<Order>, IOrderService
     {
         public OrderService(IDataContext context, SecurityContext security) : base(context, security)
         {

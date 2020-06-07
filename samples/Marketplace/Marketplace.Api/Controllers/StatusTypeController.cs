@@ -3,12 +3,12 @@
 
 using System.Web.Http;
 
-using Marketplace.Models.Configuration;
+using Marketplace.Client.Models.Configuration;
 using Marketplace.Domain.Models.Configuration;
 using Marketplace.Logic.Contracts.Configuration;
 
-using Wwa.Api.Controllers;
-using Wwa.Api.Extensions;
+using Prolix.AspNet.Controllers;
+using Prolix.AspNet.Extensions;
 
 namespace Marketplace.Api.Controllers
 {

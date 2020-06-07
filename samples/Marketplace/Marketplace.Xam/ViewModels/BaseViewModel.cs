@@ -1,6 +1,6 @@
-﻿using Marketplace.Xam.Models;
-using Wwa.Core.Mobile.Navigation;
-using Wwa.Xam.Navigation;
+﻿using Marketplace.Client.Models;
+using Prolix.Client.Navigation;
+using Prolix.Xam.Navigation;
 
 namespace Marketplace.Xam.ViewModels
 {
